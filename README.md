@@ -6,7 +6,7 @@ Run in terminal with installscript-creator command
 Part of peanut-tools
 
 How to create binary file with subcommands:
-
+```
 #'Usage' outputs text when no subcommands are given
 #eg. If you made an example.sh using the code below and did ./example.sh ,the output would be ./example.sh:command subcommand
 
@@ -21,3 +21,4 @@ name2="--reinstall"
 if [[ $name == $name2 ]]; then
  #Enter the desired function below
  echo "example"
+```
