@@ -3,6 +3,13 @@ Creates a install script suitable for your project in Bash
 
 Run in terminal with installscript-creator command
 
+Commands:
+
+```
+installscript-creator --reinstall (reinstall/update the application)
+installscript-creator --uninstall (uninstall the application)
+installscript-creator --run (runs the application)
+
 Part of peanut-tools
 
 How to create binary file with subcommands:
