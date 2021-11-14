@@ -1,0 +1,11 @@
+if [ $# -ne 1 ]; then
+    echo $0: usage: installscript-creator command
+    exit 1
+fi
+#Define subcommands here
+name=$1
+name2="--run"
+#name2 defines the name of the subcommand
+if [[ $name == $name2 ]]; then
+   cd /opt/installscript-creator/install
+   bash main.sh
