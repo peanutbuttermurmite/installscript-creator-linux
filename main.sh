@@ -1,10 +1,10 @@
 #!/bin/bash
 #Creates the main installation script
-read -p "Name of your application" appname
-read -p "Name/directory of .desktop file (optional)" desktopfile
-read -p "Name/directory of .png file (optional)(referenced in .desktop file" imagefile
-read -p "Python dependencies, separated by spaces (optional)" pythondeps
-read -p "Directory of binary file" binaryfile
+read -p "Name of your application:" appname
+read -p "Name/directory of .desktop file (optional):" desktopfile
+read -p "Name/directory of .png file (optional)(referenced in .desktop file):" imagefile
+read -p "Python dependencies, separated by spaces (optional):" pythondeps
+read -p "Directory of binary file:" binaryfile
 read -p "Enter dependencies, separated by spaces:" dependencies
 
 mkdir $appname
