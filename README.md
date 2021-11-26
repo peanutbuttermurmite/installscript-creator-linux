@@ -1,16 +1,6 @@
 # installscript-creator-linux
-Creates a install script suitable for your project in Bash
+Creates a install script suitable for your project in Bash using the included Bash snippets
 
-Run in terminal with installscript-creator command
-
-Commands:
-
-```
-installscript-creator --reinstall (reinstall/update the application)
-installscript-creator --uninstall (uninstall the application)
-installscript-creator --run (runs the application)
-```
-Part of peanut-tools
 
 How to create binary file with subcommands:
 ```
