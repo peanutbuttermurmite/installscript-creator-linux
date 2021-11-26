@@ -19,3 +19,68 @@ if [[ $name == $name2 ]]; then
  #Enter the desired function below
  echo "example"
 ```
+Framework for Bash installer script:
+```
+#!/bin/bash
+#Grabs OS info and uses it to install dependencies in a friendly, distro-agnostic way
+
+declare -A osInfo;
+#Operating Systems can be added here, but the os info needs to be in /etc
+osInfo[/etc/debian_version]='apt install -y'
+osInfo[/etc/alpine-release]='apk --update add'
+osInfo[/etc/centos-release]='yum install -y'
+osInfo[/etc/fedora-release]='dnf install -y'
+for f in ${!osInfo[@]}
+do
+    if [[ -f $f ]];then
+        package_manager=${osInfo[$f]}
+    fi
+done
+(
+# =================================================================
+echo "# Running First Task." ; sleep 2
+# Command for first task goes on this line.
+package1=$dependencies > /dev/null
+${package_manager} ${package1}
+
+
+# =================================================================
+echo "25"
+echo "# Running Second Task." ; sleep 2
+# Command for second task goes on this line.
+#Where pythondeps are your python dependencies
+pip3 install $pythondeps
+
+# =================================================================
+echo "50"
+echo "# Running Third Task." ; sleep 2
+# Command for third task goes on this line.
+#Where binaryfile is your binary file, appname is the name of your program and desktopfile is the name of your .desktop file
+chmod a+x $binaryfile
+cd ..
+cd ..
+sudo mv $appname /opt
+sudo ln -s /opt/$appname/install/$binaryfile /usr/local/bin/$binaryname
+sudo cp -r $desktopfile ~/.local/share
+
+
+# =================================================================
+
+echo "# All finished." ; sleep 2
+echo "100"
+
+
+) |
+zenity --progress \
+  --title="Progress Status" \
+  --text="First Task." \
+  --percentage=0 \
+  --auto-close \
+  --auto-kill
+
+(( $? != 0 )) && zenity --error --text="Error in zenity command."
+
+exit 0
+
+printf 'Operation Complete'
+```
