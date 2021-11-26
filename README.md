@@ -2,7 +2,7 @@
 Creates a install script suitable for your project in Bash using the included Bash snippets
 
 
-How to create binary file with subcommands:
+How to add commands for your program:
 ```
 #'Usage' outputs text when no subcommands are given
 #eg. If you made an example.sh using the code below and did ./example.sh ,the output would be ./example.sh:command subcommand
