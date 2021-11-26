@@ -40,8 +40,21 @@ done
 # =================================================================
 echo "# Running First Task." ; sleep 2
 # Command for first task goes on this line.
-package1=$dependencies > /dev/null
-${package_manager} ${package1}
+#Example Packages
+PKGS=(
+'python3'
+'python3-tk'
+'yad'
+'python3-pip'
+'python3-pil'
+'python3-pil.imagetk'
+)
+space=" "
+
+for PKG in "${PKGS[@]}"; do
+    echo "INSTALLING: ${PKG}"
+    VAR3="$package_manager$space$PKG"
+    $VAR3
 
 
 # =================================================================
@@ -49,7 +62,21 @@ echo "25"
 echo "# Running Second Task." ; sleep 2
 # Command for second task goes on this line.
 #Where pythondeps are your python dependencies
-pip3 install $pythondeps
+PYTHONDEPS=(
+'python3'
+'python3-tk'
+'yad'
+'python3-pip'
+'python3-pil'
+'python3-pil.imagetk'
+)
+space=" "
+pythonpkg="pip3 install"
+
+for PYTHONDEP in "${PYTHONDEPS[@]}"; do
+    echo "INSTALLING: ${PYTHONDEP}"
+    VAR4="$pythonpkg$space$PYTHONDEP"
+    $VAR4
 
 # =================================================================
 echo "50"
