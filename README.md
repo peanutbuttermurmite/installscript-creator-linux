@@ -55,7 +55,7 @@ for PKG in "${PKGS[@]}"; do
     echo "INSTALLING: ${PKG}"
     VAR3="$package_manager$space$PKG"
     $VAR3
-
+done
 
 # =================================================================
 echo "25"
@@ -77,6 +77,7 @@ for PYTHONDEP in "${PYTHONDEPS[@]}"; do
     echo "INSTALLING: ${PYTHONDEP}"
     VAR4="$pythonpkg$space$PYTHONDEP"
     $VAR4
+done
 
 # =================================================================
 echo "50"
