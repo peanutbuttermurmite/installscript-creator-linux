@@ -30,7 +30,7 @@ osInfo[/etc/debian_version]='apt install -y'
 osInfo[/etc/alpine-release]='apk --update add'
 osInfo[/etc/centos-release]='yum install -y'
 osInfo[/etc/fedora-release]='dnf install -y'
-for f in ${!osInfo[@]}
+for f in "${!osInfo[@]}"
 do
     if [[ -f $f ]];then
         package_manager=${osInfo[$f]}
@@ -84,9 +84,10 @@ echo "50"
 echo "# Running Third Task." ; sleep 2
 # Command for third task goes on this line.
 #Where binaryfile is your binary file, appname is the name of your program and desktopfile is the name of your .desktop file
+(cd $appname/install) || exit
 chmod a+x $binaryfile
-cd ..
-cd ..
+(cd ..)
+(cd ..)
 sudo mv $appname /opt
 sudo ln -s /opt/$appname/install/$binaryfile /usr/local/bin/$binaryname
 sudo cp -r $desktopfile ~/.local/share
@@ -99,7 +100,7 @@ echo "100"
 
 
 ) |
-zenity --progress \
+yad --progress \
   --title="Progress Status" \
   --text="First Task." \
   --percentage=0 \
@@ -109,6 +110,4 @@ zenity --progress \
 (( $? != 0 )) && zenity --error --text="Error in zenity command."
 
 exit 0
-
-printf 'Operation Complete'
 ```
